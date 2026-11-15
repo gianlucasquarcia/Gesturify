@@ -1,5 +1,6 @@
 import Clutter from 'gi://Clutter';
 import Gio from 'gi://Gio';
+import Shell from 'gi://Shell';
 import GLib from 'gi://GLib';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
@@ -8,6 +9,8 @@ const XML = `<node><interface name="test.Harness">
   <method name="Swipe"><arg type="i" direction="in"/><arg type="s" direction="in"/><arg type="d" direction="in"/><arg type="s" direction="out"/></method>
   <method name="State"><arg type="s" direction="out"/></method>
   <method name="AddWorkspace"><arg type="s" direction="out"/></method>
+  <method name="Key"><arg type="u" direction="in"/><arg type="u" direction="in"/><arg type="s" direction="out"/></method>
+  <method name="Shot"><arg type="s" direction="in"/><arg type="s" direction="out"/></method>
   <method name="Probe"><arg type="s" direction="out"/></method>
 </interface></node>`;
 
@@ -25,7 +28,7 @@ export default class Harness extends Extension {
     }
 
     _target() {
-        return Main.extensionManager.lookup('gestify@local').stateObj;
+        return Main.extensionManager.lookup('gesturify@local').stateObj;
     }
 
     // Feeds a full BEGIN/UPDATE.../END sequence to the real extension and returns consumed flags.
@@ -74,6 +77,32 @@ export default class Harness extends Extension {
     AddWorkspace() {
         global.workspace_manager.append_new_workspace(false, global.get_current_time());
         return String(global.workspace_manager.get_n_workspaces());
+    }
+
+    // Presses keyval once, with an optional modifier keyval held (0 = none).
+    Key(keyval, modifier) {
+        this._keyboard ??= Clutter.get_default_backend().get_default_seat()
+            .create_virtual_device(Clutter.InputDeviceType.KEYBOARD_DEVICE);
+        const t = GLib.get_monotonic_time();
+        if (modifier)
+            this._keyboard.notify_keyval(t, modifier, Clutter.KeyState.PRESSED);
+        this._keyboard.notify_keyval(t + 1000, keyval, Clutter.KeyState.PRESSED);
+        this._keyboard.notify_keyval(t + 2000, keyval, Clutter.KeyState.RELEASED);
+        if (modifier)
+            this._keyboard.notify_keyval(t + 3000, modifier, Clutter.KeyState.RELEASED);
+        return 'ok';
+    }
+
+    // Saves a PNG of the focused window.
+    ShotAsync(params, invocation) {
+        const [path] = params;
+        const stream = Gio.File.new_for_path(path).replace(null, false, Gio.FileCreateFlags.NONE, null);
+        new Shell.Screenshot().screenshot_window(true, false, stream)
+            .then(() => {
+                stream.close(null);
+                invocation.return_value(new GLib.Variant('(s)', [path]));
+            })
+            .catch(e => invocation.return_dbus_error('test.Harness.Error', String(e)));
     }
 
     Probe() {

@@ -8,8 +8,8 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 
 const root = new URL('../..', import.meta.url).pathname;
-const UUID = 'gestify@local';
-const SCHEMA = 'org.gnome.shell.extensions.gestify';
+const UUID = 'gesturify@local';
+const SCHEMA = 'org.gnome.shell.extensions.gesturify';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 const required = ['gnome-shell', 'dbus-daemon', 'gdbus', 'gsettings', 'glib-compile-schemas', 'gnome-text-editor'];
@@ -212,7 +212,7 @@ test('rebinding at runtime takes effect immediately', opts, async () => {
 test('preferences window (gestures + details pages) opens without errors', opts, async () => {
     const before = shellLog.length;
     clients.push(spawn('gnome-extensions', ['prefs', UUID], {env, stdio: 'ignore'}));
-    await waitFor(() => state().all.some(w => /Gestify/.test(w.title ?? '')), 'preferences window', 45000);
+    await waitFor(() => state().all.some(w => /Gesturify/.test(w.title ?? '')), 'preferences window', 45000);
     await sleep(1500);
     // The prefs app is bus-activated, so its stderr ends up in the bus log.
     const log = shellLog.slice(before);

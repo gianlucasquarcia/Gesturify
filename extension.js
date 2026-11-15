@@ -3,7 +3,7 @@ import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 import {Actions} from './lib/actions.js';
 import {GestureEngine, PHASE} from './lib/engine.js';
 
-export default class Gestify extends Extension {
+export default class Gesturify extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._actions = new Actions();

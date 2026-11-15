@@ -1,11 +1,11 @@
 {
-  "uuid": "gestify@local",
-  "name": "Gestify",
+  "uuid": "gesturify@local",
+  "name": "Gesturify",
   "description": "Ubuntu extension to customize touchpad gestures.",
   "shell-version": [
     "50",
     "51"
   ],
-  "settings-schema": "org.gnome.shell.extensions.gestify",
+  "settings-schema": "org.gnome.shell.extensions.gesturify",
   "version": 1
 }

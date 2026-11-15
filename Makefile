@@ -1,4 +1,4 @@
-UUID=gestify@local
+UUID=gesturify@local
 DEST=$(HOME)/.local/share/gnome-shell/extensions/$(UUID)
 
 schemas/gschemas.compiled: schemas/*.gschema.xml

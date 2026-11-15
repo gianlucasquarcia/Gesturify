@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.gestify" path="/org/gnome/shell/extensions/gestify/">
+  <schema id="org.gnome.shell.extensions.gesturify" path="/org/gnome/shell/extensions/gesturify/">
     <key name="swipe-3-up" type="s">
       <default>'none'</default>
       <summary>Action for 3-finger swipe up</summary>

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import GLib from 'gi://GLib';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
-import Gestify from '../extension.js';
+import Gesturify from '../extension.js';
 import {fakeSettings, fakeWindow, setupShell} from './helpers.mjs';
 
 function ev(phase, fingers, dx = 0, dy = 0, type = 'swipe') {
@@ -26,7 +26,7 @@ function setup(values, windows = []) {
     };
     globalThis.global.stage = stage;
     Extension.settings = fakeSettings(values);
-    return {ext: new Gestify(), stage, ...shell};
+    return {ext: new Gesturify(), stage, ...shell};
 }
 
 function swipe(stage, fingers, dx, dy) {

@@ -1,20 +1,75 @@
-# Gestify
+<div align="center">
 
-Ubuntu extension to customize touchpad gestures. GNOME Shell extension (shell 50, 51) to bind 3/4-finger touchpad swipes to actions:
-show desktop (default: 4-finger swipe down), prev/next workspace, overview, app grid, custom command.
+# 🖐️ Gesturify
 
-Install: `make install`, then log out/in (Wayland) and `gnome-extensions enable gestify@local`.
-Configure: `gnome-extensions prefs gestify@local` (a Details page there explains version, how it works and available actions).
+**Ubuntu extension to customize touchpad gestures.**
 
-Notes: a finger count with any bound action is captured entirely (native gesture of that count is overridden);
-counts with all actions "Do nothing" stay native. Requires Wayland (touchpad swipe events).
+![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-50%20%7C%2051-4a86cf?logo=gnome&logoColor=white)
+![Wayland](https://img.shields.io/badge/Wayland-only-ffbc00)
+![Tests](https://img.shields.io/badge/tests-unit%20%2B%20integration-brightgreen)
 
-## Tests
+<img src="docs/screenshots/preferences.png" alt="Gesturify preferences" width="420">
+<img src="docs/screenshots/details.png" alt="Gesturify details page" width="420">
 
-- `npm test` – unit tests (Node >= 20, no dependencies). GJS/Shell modules are mocked via `tests/loader.mjs`
-  and `tests/mocks/`; covers gesture engine, actions, `extension.js`, `prefs.js` (gestures + details pages) and the GSettings schema
-  (the schema test needs `gjs` and `glib-compile-schemas`).
-- `npm run test:integration` – runs the real extension in an isolated headless GNOME Shell with real
-  Wayland windows (needs `gnome-shell`, `dbus-daemon`, `gnome-text-editor`). Touchpad events are synthesized
-  by a test-only helper extension (`tests/integration/harness@test`); everything else (window minimizing,
-  workspaces, overview, app grid, commands) is the real shell. Uses temp dirs; your settings are untouched.
+</div>
+
+## ✨ Features
+
+- 3- and 4-finger swipes in all four directions (up / down / left / right)
+- Per-gesture actions, configured from a native GTK4/libadwaita preferences window
+- Adjustable swipe threshold
+- Native GNOME gestures keep working for any finger count you leave untouched
+- Built-in **Details** page explaining version, behavior and available actions
+
+## 🎯 Actions
+
+| Action | What it does |
+| --- | --- |
+| Show desktop | Minimizes the windows on the current workspace; swiping again restores them |
+| Previous / Next workspace | Switches workspace |
+| Toggle overview | Opens/closes the Activities overview |
+| Show app grid | Opens the applications grid |
+| Run custom command | Runs any shell command you type |
+| Do nothing | Leaves the gesture unbound |
+
+**Default:** 4-finger swipe down → Show desktop. Everything else is unbound.
+
+## 📦 Installation
+
+```bash
+git clone <this repo> && cd Gesturify
+make install                      # copies to ~/.local/share/gnome-shell/extensions
+# log out and back in (Wayland), then:
+gnome-extensions enable gesturify@local
+```
+
+Open the settings with `gnome-extensions prefs gesturify@local` (or from the Extensions app).
+`make pack` builds an installable zip.
+
+## ⚠️ Notes & limitations
+
+- **Wayland only** – touchpad swipe events aren't available on X11.
+- If a finger count has **any** action bound, this extension captures **all** its swipes
+  (overriding GNOME's native gesture for that count). Counts with every direction on
+  "Do nothing" stay native.
+- GNOME Shell 51 support is declared but only tested on 50.
+- The Extension Manager app's *Details* button queries extensions.gnome.org and shows an error
+  for extensions that aren't published there. Use Gesturify's own Details page instead.
+
+## 🧪 Tests
+
+- `npm test` – unit tests (Node ≥ 20, no dependencies). GJS/Shell modules are mocked via
+  `tests/loader.mjs` and `tests/mocks/`; covers the engine, actions, `extension.js`, `prefs.js`
+  and the GSettings schema (needs `gjs` and `glib-compile-schemas`).
+- `npm run test:integration` – runs the real extension in an isolated headless GNOME Shell with
+  real Wayland windows (needs `gnome-shell`, `dbus-daemon`, `gnome-text-editor`). Touchpad events
+  are synthesized by a test-only helper extension; your settings are untouched.
+
+## 🖼️ Regenerating screenshots
+
+```bash
+SHOT=preferences npm run screenshots
+SHOT=details npm run screenshots
+```
+
+Rendered from the real prefs window in an isolated headless GNOME Shell.
