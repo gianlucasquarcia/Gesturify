@@ -71,15 +71,6 @@ Open the settings with `gnome-extensions prefs gesturify@gianlucasquarcia.github
   real Wayland windows (needs `gnome-shell`, `dbus-daemon`, `gnome-text-editor`). Touchpad events
   are synthesized by a test-only helper extension; your settings are untouched.
 
-## 🖼️ Regenerating screenshots
-
-```bash
-SHOT=preferences npm run screenshots
-SHOT=details npm run screenshots
-```
-
-Rendered from the real prefs window in an isolated headless GNOME Shell.
-
 ## 🤝 Contributing
 
 Issues and pull requests are welcome. Please run `npm test` (and `npm run test:integration` if you touch
