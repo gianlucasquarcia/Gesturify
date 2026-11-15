@@ -85,4 +85,4 @@ gesture handling) before opening a PR.
 
 ## 📄 License
 
-[GPL-3.0-or-later](LICENSE) © 2026 Gianluca Squarcia
+[GPL-3.0-or-later](LICENSE) © 2026 [Gianluca Squarcia](https://github.com/gianlucasquarcia)
