@@ -8,7 +8,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 
 const root = new URL('../..', import.meta.url).pathname;
-const UUID = 'gesturify@local';
+const UUID = 'gesturify@gianlucasquarcia.github.io';
 const SCHEMA = 'org.gnome.shell.extensions.gesturify';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 

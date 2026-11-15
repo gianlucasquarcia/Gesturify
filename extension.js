@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 Gianluca Squarcia
+
 import Clutter from 'gi://Clutter';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 import {Actions} from './lib/actions.js';

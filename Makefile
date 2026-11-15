@@ -1,4 +1,4 @@
-UUID=gesturify@local
+UUID=gesturify@gianlucasquarcia.github.io
 DEST=$(HOME)/.local/share/gnome-shell/extensions/$(UUID)
 
 schemas/gschemas.compiled: schemas/*.gschema.xml
@@ -6,9 +6,10 @@ schemas/gschemas.compiled: schemas/*.gschema.xml
 
 install: schemas/gschemas.compiled
 	mkdir -p $(DEST)
-	cp -r metadata.json extension.js prefs.js lib schemas $(DEST)/
+	cp -r metadata.json extension.js prefs.js lib schemas LICENSE $(DEST)/
 
+# Builds $(UUID).shell-extension.zip, ready for upload to extensions.gnome.org
 pack:
-	gnome-extensions pack --force --extra-source=lib .
+	gnome-extensions pack --force --extra-source=lib --extra-source=LICENSE .
 
 .PHONY: install pack

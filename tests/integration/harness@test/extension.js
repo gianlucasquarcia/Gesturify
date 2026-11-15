@@ -28,7 +28,7 @@ export default class Harness extends Extension {
     }
 
     _target() {
-        return Main.extensionManager.lookup('gesturify@local').stateObj;
+        return Main.extensionManager.lookup('gesturify@gianlucasquarcia.github.io').stateObj;
     }
 
     // Feeds a full BEGIN/UPDATE.../END sequence to the real extension and returns consumed flags.

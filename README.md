@@ -7,6 +7,7 @@
 Bind 3- and 4-finger touchpad swipes to actions like show desktop, workspace switching and custom commands, for GNOME Shell on Wayland.
 
 ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-50%20%7C%2051-4a86cf?logo=gnome&logoColor=white)
+![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue)
 ![Wayland](https://img.shields.io/badge/Wayland-only-ffbc00)
 ![Tests](https://img.shields.io/badge/tests-unit%20%2B%20integration-brightgreen)
 
@@ -39,14 +40,15 @@ Bind 3- and 4-finger touchpad swipes to actions like show desktop, workspace swi
 ## 📦 Installation
 
 ```bash
-git clone <this repo> && cd Gesturify
+git clone https://github.com/gianlucasquarcia/Gesturify.git && cd Gesturify
 make install                      # copies to ~/.local/share/gnome-shell/extensions
 # log out and back in (Wayland), then:
-gnome-extensions enable gesturify@local
+gnome-extensions enable gesturify@gianlucasquarcia.github.io
 ```
 
-Open the settings with `gnome-extensions prefs gesturify@local` (or from the Extensions app).
-`make pack` builds an installable zip.
+Open the settings with `gnome-extensions prefs gesturify@gianlucasquarcia.github.io` (or from the Extensions app).
+`make pack` builds `gesturify@gianlucasquarcia.github.io.shell-extension.zip`, which can be installed with
+`gnome-extensions install --force <zip>` or uploaded to [extensions.gnome.org](https://extensions.gnome.org/).
 
 ## ⚠️ Notes & limitations
 
@@ -75,3 +77,12 @@ SHOT=details npm run screenshots
 ```
 
 Rendered from the real prefs window in an isolated headless GNOME Shell.
+
+## 🤝 Contributing
+
+Issues and pull requests are welcome. Please run `npm test` (and `npm run test:integration` if you touch
+gesture handling) before opening a PR.
+
+## 📄 License
+
+[GPL-3.0-or-later](LICENSE) © 2026 Gianluca Squarcia

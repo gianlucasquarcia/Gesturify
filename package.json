@@ -6,5 +6,12 @@
     "test": "node --import ./tests/register.mjs --test tests/*.test.mjs",
     "test:integration": "node --test --test-concurrency=1 tests/integration/integration.test.mjs",
     "screenshots": "node scripts/screenshots.mjs"
+  },
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "description": "Bind 3- and 4-finger touchpad swipes to actions like show desktop, workspace switching and custom commands, for GNOME Shell on Wayland.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gianlucasquarcia/Gesturify.git"
   }
 }
