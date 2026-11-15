@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.gestify" path="/org/gnome/shell/extensions/gestify/">
+    <key name="swipe-3-up" type="s">
+      <default>'none'</default>
+      <summary>Action for 3-finger swipe up</summary>
+    </key>
+    <key name="command-3-up" type="s">
+      <default>''</default>
+      <summary>Custom command for 3-finger swipe up</summary>
+    </key>
+    <key name="swipe-3-down" type="s">
+      <default>'none'</default>
+      <summary>Action for 3-finger swipe down</summary>
+    </key>
+    <key name="command-3-down" type="s">
+      <default>''</default>
+      <summary>Custom command for 3-finger swipe down</summary>
+    </key>
+    <key name="swipe-3-left" type="s">
+      <default>'none'</default>
+      <summary>Action for 3-finger swipe left</summary>
+    </key>
+    <key name="command-3-left" type="s">
+      <default>''</default>
+      <summary>Custom command for 3-finger swipe left</summary>
+    </key>
+    <key name="swipe-3-right" type="s">
+      <default>'none'</default>
+      <summary>Action for 3-finger swipe right</summary>
+    </key>
+    <key name="command-3-right" type="s">
+      <default>''</default>
+      <summary>Custom command for 3-finger swipe right</summary>
+    </key>
+    <key name="swipe-4-up" type="s">
+      <default>'none'</default>
+      <summary>Action for 4-finger swipe up</summary>
+    </key>
+    <key name="command-4-up" type="s">
+      <default>''</default>
+      <summary>Custom command for 4-finger swipe up</summary>
+    </key>
+    <key name="swipe-4-down" type="s">
+      <default>'show-desktop'</default>
+      <summary>Action for 4-finger swipe down</summary>
+    </key>
+    <key name="command-4-down" type="s">
+      <default>''</default>
+      <summary>Custom command for 4-finger swipe down</summary>
+    </key>
+    <key name="swipe-4-left" type="s">
+      <default>'none'</default>
+      <summary>Action for 4-finger swipe left</summary>
+    </key>
+    <key name="command-4-left" type="s">
+      <default>''</default>
+      <summary>Custom command for 4-finger swipe left</summary>
+    </key>
+    <key name="swipe-4-right" type="s">
+      <default>'none'</default>
+      <summary>Action for 4-finger swipe right</summary>
+    </key>
+    <key name="command-4-right" type="s">
+      <default>''</default>
+      <summary>Custom command for 4-finger swipe right</summary>
+    </key>
+    <key name="threshold" type="i">
+      <default>60</default>
+      <range min="10" max="500"/>
+      <summary>Accumulated swipe distance needed to trigger</summary>
+    </key>
+  </schema>
+</schemalist>

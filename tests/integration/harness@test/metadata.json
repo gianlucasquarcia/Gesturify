@@ -1,0 +1,6 @@
+{
+  "uuid": "harness@test",
+  "name": "Test harness",
+  "description": "Test-only: exposes D-Bus helpers to drive Gestify integration tests.",
+  "shell-version": ["50", "51"]
+}
