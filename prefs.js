@@ -71,9 +71,9 @@ export default class Prefs extends ExtensionPreferences {
         const about = new Adw.PreferencesGroup({title: md.name, description: md.description});
         page.add(about);
         for (const [title, value] of [
-            ['Version', String(md['version-name'] ?? md.version ?? '')],
+            ['Version', md['version-name']],
             ['Extension ID', md.uuid],
-            ['Supported GNOME Shell', (md['shell-version'] ?? []).join(', ')],
+            ['Supported GNOME Shell', md['shell-version'].join(', ')],
         ])
             about.add(new Adw.ActionRow({title, subtitle: value, subtitle_selectable: true}));
 
