@@ -7,6 +7,5 @@
   ],
   "url": "https://github.com/gianlucasquarcia/Gesturify",
   "settings-schema": "org.gnome.shell.extensions.gesturify",
-  "version": 1,
   "version-name": "1.0.0"
 }

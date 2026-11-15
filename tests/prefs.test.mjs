@@ -78,7 +78,7 @@ test('details page shows metadata, how it works and every available action', () 
     assert.equal(about.title, meta.name);
     assert.equal(about.description, meta.description);
     const subtitles = about.children.map(r => r.subtitle);
-    assert.deepEqual(subtitles, [String(meta.version), meta.uuid, meta['shell-version'].join(', ')]);
+    assert.deepEqual(subtitles, [meta['version-name'], meta.uuid, meta['shell-version'].join(', ')]);
     assert.ok(how.children.length > 0);
     assert.deepEqual(actions.children.map(r => r.title),
         ACTIONS.filter(a => a[0] !== 'none').map(a => a[1]));
