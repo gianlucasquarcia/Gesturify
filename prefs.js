@@ -32,7 +32,7 @@ export default class Prefs extends ExtensionPreferences {
                 sync();
                 group.add(combo);
 
-                const entry = new Adw.EntryRow({title: 'Command'});
+                const entry = new Adw.EntryRow({title: 'Command (runs as your user)'});
                 settings.bind(`command-${fingers}-${dir}`, entry, 'text', 0);
                 const updateVisibility = () => {
                     entry.visible = settings.get_string(key) === 'command';

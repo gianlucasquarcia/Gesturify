@@ -3,8 +3,7 @@
   "name": "Gesturify",
   "description": "Bind 3- and 4-finger touchpad swipes to actions like show desktop, workspace switching and custom commands, for GNOME Shell on Wayland.",
   "shell-version": [
-    "50",
-    "51"
+    "50"
   ],
   "url": "https://github.com/gianlucasquarcia/Gesturify",
   "settings-schema": "org.gnome.shell.extensions.gesturify",
