@@ -1,7 +1,7 @@
 {
   "uuid": "gesturify@local",
   "name": "Gesturify",
-  "description": "Ubuntu extension to customize touchpad gestures.",
+  "description": "Bind 3- and 4-finger touchpad swipes to actions like show desktop, workspace switching and custom commands, for GNOME Shell on Wayland.",
   "shell-version": [
     "50",
     "51"

@@ -2,7 +2,9 @@
 
 # 🖐️ Gesturify
 
-**Ubuntu extension to customize touchpad gestures.**
+**Make your touchpad do more: 3- and 4-finger swipes for GNOME.**
+
+Bind 3- and 4-finger touchpad swipes to actions like show desktop, workspace switching and custom commands, for GNOME Shell on Wayland.
 
 ![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-50%20%7C%2051-4a86cf?logo=gnome&logoColor=white)
 ![Wayland](https://img.shields.io/badge/Wayland-only-ffbc00)
