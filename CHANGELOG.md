@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Declare compatibility with GNOME Shell 51.
+
 ## 1.0.0
 
 - Initial release: 3/4-finger swipes (up/down/left/right) bound to show desktop, workspace

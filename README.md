@@ -6,7 +6,7 @@
 
 Bind 3- and 4-finger touchpad swipes to actions like show desktop, workspace switching and custom commands, for GNOME Shell on Wayland.
 
-![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-50-4a86cf?logo=gnome&logoColor=white)
+![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-50--51-4a86cf?logo=gnome&logoColor=white)
 ![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue)
 ![Wayland](https://img.shields.io/badge/Wayland-only-ffbc00)
 ![Tests](https://img.shields.io/badge/tests-unit%20%2B%20integration-brightgreen)
@@ -56,7 +56,7 @@ Open the settings with `gnome-extensions prefs gesturify@gianlucasquarcia.github
 - If a finger count has **any** action bound, this extension captures **all** its swipes
   (overriding GNOME's native gesture for that count). Counts with every direction on
   "Do nothing" stay native.
-- Tested on GNOME Shell 50. Support for 51 will be declared once it is released.
+- Metadata declares support for GNOME Shell 50 and 51. Only GNOME Shell 50 has been tested so far.
 - **Custom commands** are run as your user with the text you enter in the settings (nothing is
   downloaded or run without you configuring it). Only enter commands you trust.
 - The Extension Manager app's *Details* button queries extensions.gnome.org and shows an error

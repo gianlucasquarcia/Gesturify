@@ -18,6 +18,7 @@ function defaultOf(key) {
 test('metadata declares a published shell version', () => {
     assert.ok(meta.uuid.includes('@'));
     assert.ok(meta['shell-version'].includes('50'));
+    assert.ok(meta['shell-version'].includes('51'));
     assert.match(xml, new RegExp(`id="${meta['settings-schema']}"`));
 });
 
